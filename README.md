@@ -1,7 +1,7 @@
 <h1 align="center">GitHub Streaks Visualizer</h1>
 
 <p align="center">
-  <img src="imgs/banner.jpg" alt="GitHub Streaks Grapher Banner">
+  <img src="https://raw.githubusercontent.com/Madhav-MKNC/GitHub-Streaks-Visualizer/main/imgs/banner.jpg" alt="GitHub Streaks Grapher Banner">
 </p>
 
 <p align="center">
