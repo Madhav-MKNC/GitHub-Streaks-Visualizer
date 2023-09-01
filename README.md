@@ -12,9 +12,9 @@
 
 ## Overview
 
-GitHub Streaks Grapher is a powerful web application designed to take your GitHub contribution tracking to the next level. Unlike conventional streak trackers that show only the highest and current streaks, this tool offers an in-depth exploration of your contribution history over time.
+GitHub Streaks Visualizer is a powerful web application designed to take your GitHub contribution tracking to the next level. Unlike conventional streak trackers that show only the highest and current streaks, this tool offers an in-depth exploration of your contribution history over time.
 
-Powered by GitHub's API and tailored to your profile, this application calculates streaks by identifying uninterrupted sequences of days with contributions. The resulting insights are then translated into an interactive graph, where streak lengths are plotted on the y-axis against days on the x-axis.
+Powered by GitHub's REST API and tailored to your profile, this application calculates streaks by identifying uninterrupted sequences of days with contributions. The resulting insights are then translated into an interactive graph, where streak lengths are plotted on the y-axis against days on the x-axis.
 
 ## Features
 
