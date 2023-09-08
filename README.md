@@ -1,3 +1,5 @@
+<h2 align='center'>[Under Development]</h2>
+
 <h1 align="center">GitHub Streaks Visualizer</h1>
 
 <p align="center">
