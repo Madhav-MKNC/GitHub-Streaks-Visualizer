@@ -1,5 +1,5 @@
 // Fetch data from Flask server based on the username parameter
-fetch(`/user/${username}`)
+fetch(`/graph/${username}`)
     .then(response => response.json())
     .then(data => {
         // Extract date and streak values

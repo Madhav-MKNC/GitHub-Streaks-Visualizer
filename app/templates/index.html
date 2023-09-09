@@ -10,11 +10,11 @@
 <body>
     <h1 id="pageTitle"></h1>
     <canvas id="streaksChart" width="800" height="400"></canvas>
+    <h1>username: {{ username }}</h1>
 
-    <!-- Include the external JavaScript file -->
     <script>
         const username = "{{ username }}"; // Embed the username as a JavaScript variable
     </script>
-    <script src="script.js"></script>
+    <!-- <script src="{{ url_for('static', filename='graph.js') }}"></script> -->
 </body>
 </html>

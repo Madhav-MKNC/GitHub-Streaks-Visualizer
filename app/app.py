@@ -20,27 +20,27 @@ app = Flask(__name__)
 CORS(app=app)
 
 
-# index
-@app.route('/')
-def index():
-    return jsonify({
-        "status": "Online",
-        "status_code": 200
-    })
+# # index
+# @app.route('/')
+# def index():
+#     return jsonify({
+#         "status": "Online",
+#         "info": "For fetching github-streaks-visualization goto: /<username>"
+#     })
 
 # user chart
-@app.route('/<username>', methods=['GET'])
+@app.route('/<username>', methods=['GET','POST'])
 def index(username):
     # if valid username
     if is_valid(username):
         return render_template('index.html', username=username)
     
     return jsonify({
-        "status": "Invalid Username!"
+        "status": "Username not found!"
     })
 
 # returns streaks data
-@app.route('/user/<username>', methods=['GET'])
+@app.route('/graph/<username>', methods=['GET','POST'])
 def get_graph_data(username):
     # if valid username
     if is_valid(username):
@@ -48,7 +48,7 @@ def get_graph_data(username):
         return jsonify(streaks)
     
     return jsonify({
-        "status": "Invalid Username!"
+        "status": "Username not found!"
     })
 
 
