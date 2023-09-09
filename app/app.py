@@ -17,6 +17,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app=app)
 
+# server address
+HOST = os.getenv("HOST")
+PORT = os.getenv("PORT")
+
 # Sample streaks data
 streaks = [
     {'date': '2023-08-22', 'streak': 5},
@@ -27,20 +31,21 @@ streaks = [
 ]
 
 # index
-@app.route('/', methods=['GET'])
-def index():
-    return render_template('index.html')
+@app.route('/<username>', methods=['GET'])
+def index(username):
+    return render_template('index.html', username=username)
 
 # returns streaks data
-@app.route('/get_graph', methods=['GET'])
+@app.route('/user/<username>', methods=['GET'])
 def get_graph_data():
     return jsonify(streaks)
 
 
 # run server
 def start_server():
-    serve(app, host=os.getenv("HOST"), port=os.getenv("PORT"))
+    serve(app, host=HOST, port=PORT)
 
 # main
 if __name__ == '__main__':
+    print(f"[+] Server Online at: {HOST}:{PORT}")
     start_server()

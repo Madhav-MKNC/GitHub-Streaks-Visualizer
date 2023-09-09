@@ -1,5 +1,5 @@
-// Fetch data from Flask server
-fetch('/get_graph')
+// Fetch data from Flask server based on the username parameter
+fetch(`/user/${username}`)
     .then(response => response.json())
     .then(data => {
         // Extract date and streak values
@@ -25,7 +25,7 @@ fetch('/get_graph')
                 maintainAspectRatio: false,
                 title: {
                     display: true,
-                    text: 'Streaks Over Time'
+                    text: `Streaks Over Time for User: ${username}`
                 },
                 scales: {
                     xAxes: [{

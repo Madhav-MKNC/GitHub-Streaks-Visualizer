@@ -8,10 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <h1>Streaks Graph</h1>
+    <h1 id="pageTitle"></h1>
     <canvas id="streaksChart" width="800" height="400"></canvas>
 
     <!-- Include the external JavaScript file -->
-    <script src="{{ url_for('static', filename='graph.js') }}"></script>
+    <script>
+        const username = "{{ username }}"; // Embed the username as a JavaScript variable
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>
