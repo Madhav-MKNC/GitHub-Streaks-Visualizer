@@ -119,61 +119,26 @@ for day in data:
         "streak": current_streak
     })
 
-   
-# for i in data:
-#    print(f"date: {i['date']}\tcontributions: {i['contributionCount']}")
-   
-
-# show graph
-import matplotlib.pyplot as plt
-
-# # Extract date and contributionCount values
-# dates = [entry['date'] for entry in data]
-# contributions = [entry['contributionCount'] for entry in data]
-
-# # Create the plot
-# plt.figure(figsize=(10, 6))
-# plt.plot(dates, contributions, marker='o', linestyle='-', color='b')
-# plt.title('Contributions Over Time')
-# plt.xlabel('Date')
-# plt.ylabel('Contribution Count')
-# plt.xticks(rotation=45)  # Rotate x-axis labels for better readability
-
-# # Display the plot
-# plt.tight_layout()
-# plt.grid(True)
-# plt.show()
 
 
-import matplotlib.pyplot as plt
-from datetime import datetime
 
-# Extract date and streak values
-dates = [entry['date'] for entry in streaks]
-streak_values = [entry['streak'] for entry in streaks]
+# import matplotlib.pyplot as plt
+# from datetime import datetime
 
-# Extract and format month names
-month_names = [datetime.strptime(date, '%Y-%m-%d').strftime('%b %Y') for date in dates]
+# # Extract date and streak values
+# dates = [entry['date'] for entry in streaks]
+# streak_values = [entry['streak'] for entry in streaks]
 
-# Create a list to store unique month names
-unique_month_names = []
-unique_dates = []
+# # Extract and format month names
+# month_names = [datetime.strptime(date, '%Y-%m-%d').strftime('%b %Y') for date in dates]
 
-# Loop through dates to get unique month names
-for date, month_name in zip(dates, month_names):
-    if month_name not in unique_month_names:
-        unique_month_names.append(month_name)
-        unique_dates.append(date)
+# # Create a list to store unique month names
+# unique_month_names = []
+# unique_dates = []
 
-# Create the plot
-plt.figure(figsize=(10, 6))
-plt.plot(dates, streak_values, marker='o', linestyle='-', color='b')
-plt.title('Streaks Over Time')
-plt.xlabel('Date')
-plt.ylabel('Streak Count')
-plt.xticks(unique_dates, unique_month_names, rotation=45)  # Use unique month dates as labels
+# # Loop through dates to get unique month names
+# for date, month_name in zip(dates, month_names):
+#     if month_name not in unique_month_names:
+#         unique_month_names.append(month_name)
+#         unique_dates.append(date)
 
-# Display the plot
-plt.tight_layout()
-plt.grid(True)
-plt.show()
