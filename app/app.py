@@ -8,6 +8,8 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+from utils import *
+
 from flask import Flask, jsonify, render_template
 from waitress import serve
 from flask_cors import CORS
@@ -17,28 +19,37 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app=app)
 
-# server address
-HOST = os.getenv("HOST")
-PORT = os.getenv("PORT")
-
-# Sample streaks data
-streaks = [
-    {'date': '2023-08-22', 'streak': 5},
-    {'date': '2023-08-23', 'streak': 6},
-    {'date': '2023-08-24', 'streak': 7},
-    {'date': '2023-08-25', 'streak': 8},
-    {'date': '2023-08-26', 'streak': 9}
-]
 
 # index
+@app.route('/')
+def index():
+    return jsonify({
+        "status": "Online",
+        "status_code": 200
+    })
+
+# user chart
 @app.route('/<username>', methods=['GET'])
 def index(username):
-    return render_template('index.html', username=username)
+    # if valid username
+    if is_valid(username):
+        return render_template('index.html', username=username)
+    
+    return jsonify({
+        "status": "Invalid Username!"
+    })
 
 # returns streaks data
 @app.route('/user/<username>', methods=['GET'])
-def get_graph_data():
-    return jsonify(streaks)
+def get_graph_data(username):
+    # if valid username
+    if is_valid(username):
+        streaks = get_user_streaks(username)
+        return jsonify(streaks)
+    
+    return jsonify({
+        "status": "Invalid Username!"
+    })
 
 
 # run server
